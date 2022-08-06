@@ -1,10 +1,10 @@
 === Admin login URL Change ===
 Contributors: jahidcse
-Donate link: https://viserx.com/
+Donate link: https://themefic.com/
 Tags: change wp-login, login, remove wp-login, wordpress login, custom login, login customizer, custom login url, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html
 Requires at least: 4.7
-Tested up to: 5.8.2
-Stable tag: 1.0
+Tested up to: 6.0.1
+Stable tag: 1.0.1
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -20,7 +20,7 @@ Example: http://www.yourdomain.com/my-login.
 
 == How to use the plugin ==
 
-* Add new login URL
+* Add New login URL
 
 
 == Installation ==
@@ -28,7 +28,7 @@ Example: http://www.yourdomain.com/my-login.
 1. Install Admin login URL Change by uploading the `admin-login-url-change` directory to the `/wp-content/plugins/` directory.
 2. Activate Admin login URL Change through the `Plugins` menu in WordPress.
 3. Chanage your URL Slug by going to the Settings > Admin login URL Change menu.
-4. Now you can logout and login by new URL.
+4. Now you can logout and login by new URL.(Must be a Live Server)
 
 
 
@@ -44,6 +44,10 @@ Absolutely not.
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0 =
 
 * Initial version
+
+= 1.0.1 =
+
+* Settings Page Integrate

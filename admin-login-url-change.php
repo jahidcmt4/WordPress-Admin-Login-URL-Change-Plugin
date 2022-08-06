@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       Admin login URL Change
- * Plugin URI:        https://viserx.com/
+ * Plugin URI:        https://themefic.com/
  * Description:       Allows you to Change your WordPress WebSite Login URL.
- * Version:           1.0
+ * Version:           1.0.1
  * Requires at least: 4.7
- * Tested up to: 5.8.2
+ * Tested up to: 6.0.1
  * Requires PHP:      5.3
  * Author:            jahidcse
  * Author URI:        https://profiles.wordpress.org/jahidcse/
@@ -35,6 +35,8 @@ $this->plugin->url                      = plugin_dir_url( __FILE__ );
 */
 
 add_action('admin_menu', array($this,'admin_login_url_change_add_page'));
+add_action( 'activated_plugin', array($this,'admin_login_url_change_activated'));
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array($this,'admin_login_url_change_page_settings'));
 add_action('admin_enqueue_scripts', array($this,'admin_login_url_change_css'));
 add_action('login_head', array($this,'admin_login_url_change_redirect_error_page'));
 add_action('init', array($this,'admin_login_url_change_redirect_success_page'));
@@ -49,6 +51,29 @@ add_action('wp_login_failed', array($this,'admin_login_url_change_redirect_faile
 
 function admin_login_url_change_add_page() {
      add_submenu_page( 'options-general.php', $this->plugin->displayName, $this->plugin->displayName, 'manage_options', $this->plugin->name, array( &$this, 'settingsPanel' ) );
+}
+
+/**
+* Activated Plugin Setting
+*/
+
+function admin_login_url_change_activated( $plugin ) {
+  if ( plugin_basename( __FILE__ ) == $plugin ) {
+    wp_redirect( admin_url( 'options-general.php?page='.$this->plugin->name ) );
+    die();
+  }
+}
+
+
+/**
+* Plugin Setting Page Linked
+*/
+
+function admin_login_url_change_page_settings( $links ) {
+  $link = sprintf( "<a href='%s' style='color:#2271b1;'>%s</a>", admin_url( 'options-general.php?page='.$this->plugin->name ), __( 'Settings', 'admin-login-url-change' ) );
+  array_push( $links, $link );
+
+  return $links;
 }
 
 /**
@@ -71,7 +96,7 @@ if(isset($_REQUEST['but_submit'])){
     $this->message = __( 'Settings Saved.', 'admin-login-url-change' );
     }
   }
-  $this->html_tag_replace_info = array(
+  $this->admin_login_url_info = array(
     'jh_new_login_url' => esc_html( wp_unslash( get_option( 'jh_new_login_url' ) ) ),
   );
   include_once $this->plugin->folder.'/view/settings.php';

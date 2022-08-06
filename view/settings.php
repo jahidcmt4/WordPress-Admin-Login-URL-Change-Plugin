@@ -28,7 +28,7 @@
       <form method='post' action='<?php echo esc_html($hfcm_form_action); ?>'>
          <p>
             <label for="jh-new-login-url"><?php esc_html_e("Add New Login Slug","admin-login-url-change"); ?></label>
-            <input type="text" name="jh_new_login_url" id="jh-new-login-url" placeholder="Example: newadmin/adminlogin .... etc" value="<?php if(!empty($this->html_tag_replace_info['jh_new_login_url'])){ echo esc_html($this->html_tag_replace_info['jh_new_login_url']); } ?>" <?php echo ( ! current_user_can( 'unfiltered_html' ) ) ? ' disabled="disabled" ' : ''; ?> />
+            <input type="text" name="jh_new_login_url" id="jh-new-login-url" placeholder="Example: newadmin/adminlogin .... etc" value="<?php if(!empty($this->admin_login_url_info['jh_new_login_url'])){ echo esc_html($this->admin_login_url_info['jh_new_login_url']); } ?>" <?php echo ( ! current_user_can( 'unfiltered_html' ) ) ? ' disabled="disabled" ' : ''; ?> />
          </p>
          
           <?php if ( current_user_can( 'unfiltered_html' ) ) { ?>
