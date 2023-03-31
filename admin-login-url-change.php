@@ -3,9 +3,9 @@
  * Plugin Name:       Admin login URL Change
  * Plugin URI:        https://themefic.com/
  * Description:       Allows you to Change your WordPress WebSite Login URL.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Requires at least: 4.7
- * Tested up to: 6.0.1
+ * Tested up to: 6.2
  * Requires PHP:      5.3
  * Author:            jahidcse
  * Author URI:        https://profiles.wordpress.org/jahidcse/
