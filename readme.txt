@@ -3,8 +3,8 @@ Contributors: jahidcse
 Donate link: https://themefic.com/
 Tags: change wp-login, login, remove wp-login, wordpress login, custom login, login customizer, custom login url, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html
 Requires at least: 4.7
-Tested up to: 6.3
-Stable tag: 1.0.3
+Tested up to: 6.4
+Stable tag: 1.0.4
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -43,6 +43,10 @@ Absolutely not.
 1. Settings
 
 == Changelog ==
+
+= 1.0.4 =
+
+* Added: Compatibility with WordPress 6.4
 
 = 1.0.3 =
 
