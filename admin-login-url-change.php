@@ -3,7 +3,7 @@
  * Plugin Name:       Admin login URL Change
  * Plugin URI:        https://themefic.com/
  * Description:       Allows you to Change your WordPress WebSite Login URL.
- * Version:           1.0.4
+ * Version:           1.0.5
  * Requires at least: 4.7
  * Tested up to: 6.4
  * Requires PHP:      5.3
@@ -133,11 +133,13 @@ function admin_login_url_change_redirect_error_page(){
 
 function admin_login_url_change_redirect_success_page(){
   $jh_new_login = wp_unslash(get_option( 'jh_new_login_url' ));
-  $jh_wp_admin_login_current_url_path=parse_url($_SERVER['REQUEST_URI']);
+  if(!empty($jh_new_login)){
+    $jh_wp_admin_login_current_url_path=parse_url($_SERVER['REQUEST_URI']);
 
-  if($jh_wp_admin_login_current_url_path["path"] == '/'.$jh_new_login){
-    wp_safe_redirect(home_url("wp-login.php?$jh_new_login&redirect=false"));
-    exit(); 
+    if($jh_wp_admin_login_current_url_path["path"] == '/'.$jh_new_login){
+      wp_safe_redirect(home_url("wp-login.php?$jh_new_login&redirect=false"));
+      exit(); 
+    }
   }
 }
 
@@ -147,8 +149,10 @@ function admin_login_url_change_redirect_success_page(){
 
 function admin_login_url_change_redirect_login_page() {
   $jh_new_login = wp_unslash(get_option( 'jh_new_login_url' ));
-  wp_safe_redirect(home_url("wp-login.php?$jh_new_login&redirect=false"));
+  if(!empty($jh_new_login)){
+    wp_safe_redirect(home_url("wp-login.php?$jh_new_login&redirect=false"));
     exit();
+  }
 }
 
 /**
@@ -157,8 +161,10 @@ function admin_login_url_change_redirect_login_page() {
 
 function admin_login_url_change_redirect_failed_login_page($username) {
   $jh_new_login = wp_unslash(get_option( 'jh_new_login_url' ));
-  wp_safe_redirect(home_url("wp-login.php?$jh_new_login&redirect=false"));
-  exit();
+  if(!empty($jh_new_login)){
+    wp_safe_redirect(home_url("wp-login.php?$jh_new_login&redirect=false"));
+    exit();
+  }
 }
 
 
